@@ -8,6 +8,13 @@
     <AssemblyName>WebView2TestApp</AssemblyName>
     <Nullable>disable</Nullable>
     <LangVersion>latest</LangVersion>
+    <!--
+      x86 so the exe is always 32-bit (WoW64 on 64-bit Windows).
+      This ensures .NET Framework picks up the x86 WebView2Loader.dll
+      from the publish root, not the x64 copy.
+      .NET Framework does NOT understand the runtimes/ sub-folder layout.
+    -->
+    <PlatformTarget>x86</PlatformTarget>
     <ApplicationIcon />
     <StartupObject>WebView2TestApp.Program</StartupObject>
   </PropertyGroup>
